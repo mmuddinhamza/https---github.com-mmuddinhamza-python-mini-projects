@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Display JSON in HTML</title>
+    <script>
+        window.onload = function() {
+            // Fetch the JSON data from the server
+            fetch('https://jovian-careers-website--mohammed-mahroz.repl.co/generate_text')
+                .then(response => response.json())  // Parse the JSON data
+                .then(data => {
+                    // Get the element in your HTML where you want to display the data
+                    var resultElement = document.getElementById('result');
+
+                    // Create a new text node with the result data
+                    var textNode = document.createTextNode(data.result);
+
+                    // Append the text node to the result element
+                    resultElement.appendChild(textNode);
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</head>
+<body>
+    <h1>Result:</h1>
+    <p id="result"></p>  <!-- This is where the result data will be displayed -->
+</body>
+</html>
